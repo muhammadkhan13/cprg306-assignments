@@ -8,5 +8,5 @@ export function StudentInfo() {
                 <Link href="https://github.com/muhammadkhan13/cprg306-assignments">Github Repository</Link>
             </nav>
         </div>
-    )
+    );
 }
