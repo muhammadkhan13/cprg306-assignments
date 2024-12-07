@@ -8,6 +8,7 @@ import itemsData from "./items.json";
 export default function Page() {
     const [items, setItems] = useState(itemsData);
 
+    //Used method of "combining" lists to create a new array that contains all items in the previous array and the new item and the set state function to make that the new item list
     const handleAddItem = (newItem) => {
         setItems(...items, newItem);
     };

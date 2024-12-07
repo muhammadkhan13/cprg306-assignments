@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Item } from "./item";
 
 export function ItemList({ items, onItemSelect }) {
+    //Initialized sorting and item state variables
     const [sortBy, setSortBy] = useState("name");
     const [itemCopy, setItemCopy] = useState([...items]);
 

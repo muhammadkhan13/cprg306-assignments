@@ -3,9 +3,12 @@
 import { useState } from "react";
 
 export function NewItem() {
+    //Initialized state variables with initial values in accordance with assignment instructions
     const [quantity, setQuantity] = useState(1);
     const [name, setName] = useState("");
     const [category, setCategory] = useState("produce");
+    //Hard-coded a variable that will take the initial states as shown above to be retrieved later when state is reset during form submission
+    //I don't know/remember if there is a better way to record or retrieve the initial state of a set of state variables
     const initialState = {
         name: "",
         quantity: 1,
@@ -24,9 +27,13 @@ export function NewItem() {
         };
     };
 
+    //Event handler function programmed as arrow function
+    //It takes in the form submission as the event parameter
     const handleSubmit = (event) => {
+        //Prevents default behavior of form submission that gets rid of all fields/inputs to allow for reset to initial state and recording of input values
         event.preventDefault();
 
+        //Item object created using the name, quantity, and category values contained within form fields at the time of submission
         const item = {
             name: name,
             quantity: quantity,
@@ -36,6 +43,7 @@ export function NewItem() {
 
         alert(`Name: ${ name }, Quantity: ${ quantity }, Category: ${ category }`);
 
+        //Once item object is created, the information has been stored, and the fields in the form are all reset using the initial state object created earlier
         setName(initialState.name);
         setQuantity(initialState.quantity);
         setCategory(initialState.category);

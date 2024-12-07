@@ -5,6 +5,7 @@ import { Item } from "./item";
 
 export function ItemList({ items }) {
     const [sortBy, setSortBy] = useState("name");
+    //Created itemCopy using the same method of "combining" and array using ... prefix that I used in theweek 6 assignment
     const [itemCopy, setItemCopy] = useState([...items]);
 
     const sortedItems = [...itemCopy].sort((item1, item2) => {
@@ -18,8 +19,8 @@ export function ItemList({ items }) {
 
     return(
         <div>
-            <Button onClick = {() => setSortBy("name")} style = {{backgroundColor: sortBy === "name" ? "lightblue" : "white"}}>Sort By Name</Button>
-            <Button onClick = {() => setSortBy("category")} style = {{backgroundColor: sortBy === "category" ? "lightblue" : "white"}}>Sort By Category</Button>
+            <Button onClick = {() => setSortBy("name")} style = {{backgroundColor: sortBy === "name" ? "green" : "white"}}>Sort By Name</Button>
+            <Button onClick = {() => setSortBy("category")} style = {{backgroundColor: sortBy === "category" ? "green" : "white"}}>Sort By Category</Button>
             <ul>{sortedItems.map(item => (<Item name={item.name} quantity={item.quantity} category={item.category}/>))}</ul>
         </div>
     );
