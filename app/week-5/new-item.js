@@ -6,7 +6,7 @@ export function NewItem() {
     const [quantity, setQuantity] = useState(1);
     const [name, setName] = useState("");
     const [category, setCategory] = useState("produce");
-    const initialstate = {
+    const initialState = {
         name: "",
         quantity: 1,
         category: "produce",

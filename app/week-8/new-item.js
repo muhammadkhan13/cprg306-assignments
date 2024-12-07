@@ -7,7 +7,7 @@ export function NewItem({ onAddItem }) {
     const [name, setName] = useState("");
     const [category, setCategory] = useState("produce");
     const idLength = 18;
-    const initialstate = {
+    const initialState = {
         name: "",
         quantity: 1,
         category: "produce",
