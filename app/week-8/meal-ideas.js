@@ -9,7 +9,7 @@ async function fetchMealIdeas(ingredient) {
     try {
         const response = await fetch(url);
         if (!response.ok) {
-            throw new Error("Fetch Failed");
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
@@ -28,9 +28,9 @@ async function fetchMealIdeas(ingredient) {
 export function MealIdeas({ ingredient }) {
     const [meals, setMeals] = useState([]);
 
-    const loadMealIdeas = async () => {
+    async function loadMealIdeas() {
         const mealData = await fetchMealIdeas(ingredient);
-        setMeals(mealData);
+        setMeals(...mealData);
     };
 
     useEffect(() => { loadMealIdeas(); }, [ingredient]);
@@ -42,7 +42,6 @@ export function MealIdeas({ ingredient }) {
               meals.map(meal => (
                 <li key={meal.idMeal}>
                   <h3>{meal.strMeal}</h3>
-                  <img src={meal.strMealThumb} alt={meal.strMeal} width={100} />
                 </li>
               ))) : (<li>No meals found for this ingredient.</li>)}
           </ul>
